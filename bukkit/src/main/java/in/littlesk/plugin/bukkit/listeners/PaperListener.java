@@ -9,6 +9,8 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerPreLoginEvent;
 
+import java.util.concurrent.TimeUnit;
+
 public class PaperListener implements Listener {
     private final Core core;
 
@@ -26,7 +28,7 @@ public class PaperListener implements Listener {
         RemoteGameProfile remoteProfile;
 
         try {
-            remoteProfile = this.core.getGameProfileByName(name).get().orElse(null);
+            remoteProfile = this.core.getGameProfileByName(name).get(10, TimeUnit.SECONDS).orElse(null);
             if (remoteProfile == null) {
                 return;
             }

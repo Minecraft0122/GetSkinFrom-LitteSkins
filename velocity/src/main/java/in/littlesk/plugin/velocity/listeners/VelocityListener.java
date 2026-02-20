@@ -10,6 +10,7 @@ import in.littlesk.plugin.core.yggdrasil.RemoteGameProfile;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class VelocityListener {
 
@@ -24,7 +25,7 @@ public class VelocityListener {
         String name = event.getUsername();
 
         return EventTask.withContinuation(continuation -> {
-            this.core.getGameProfileByName(name).whenComplete((remoteProfile, ex) -> {
+            this.core.getGameProfileByName(name).orTimeout(10, TimeUnit.SECONDS).whenComplete((remoteProfile, ex) -> {
                 if (ex == null && remoteProfile.isPresent()) {
                     RemoteGameProfile.Property textureProperty = remoteProfile.get().getProperty("textures").orElse(null);
 
