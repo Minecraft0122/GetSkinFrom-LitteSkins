@@ -25,6 +25,11 @@ public class Slf4jLogger implements PlatformLogger{
     }
 
     @Override
+    public void error(String message, Throwable throwable) {
+        this.logger.error(message, throwable);
+    }
+
+    @Override
     public void debug(String message) {
         this.logger.debug(message);
     }

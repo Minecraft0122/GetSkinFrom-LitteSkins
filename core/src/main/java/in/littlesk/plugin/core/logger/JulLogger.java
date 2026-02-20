@@ -25,6 +25,11 @@ public class JulLogger implements PlatformLogger {
     }
 
     @Override
+    public void error(String message, Throwable throwable) {
+        this.logger.log(java.util.logging.Level.SEVERE, message, throwable);
+    }
+
+    @Override
     public void debug(String message) {
         logger.fine(message);
     }

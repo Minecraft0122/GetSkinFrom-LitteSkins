@@ -7,6 +7,7 @@ public interface PlatformLogger {
     void info(String message);
     void warning(String message);
     void error(String message);
+    void error(String message, Throwable throwable);
     void debug(String message);
 
     default void multiline(List<String> messages, Consumer<String> action) {

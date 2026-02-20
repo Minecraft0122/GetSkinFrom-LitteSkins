@@ -65,8 +65,7 @@ public class Core {
                 this.logger.error("Response body: " + response.body().string());
             }
         } catch (Exception e) {
-            this.logger.error("Exception while fetching UUID for name " + name + ": " + e.getMessage());
-            this.logger.error("Stack trace: " + e);
+            this.logger.error("Exception while fetching UUID for name " + name + ".", e);
         }
         return Optional.empty();
     }
@@ -91,8 +90,7 @@ public class Core {
                 this.logger.error("Response body: " + response.body().string());
             }
         } catch (Exception e) {
-            this.logger.error("Exception while fetching profile for UUID " + uuid + ": " + e.getMessage());
-            this.logger.error("Stack trace: " + e);
+            this.logger.error("Exception while fetching profile for UUID " + uuid + ".", e);
         }
         return Optional.empty();
     }
