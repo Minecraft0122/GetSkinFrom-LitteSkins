@@ -23,27 +23,26 @@ public class VelocityListener {
     public EventTask onGameProfileRequest(GameProfileRequestEvent event) {
         String name = event.getUsername();
 
-        return EventTask.async(() -> {
-            RemoteGameProfile remoteProfile = core.getGameProfileByName(name).orElse(null);
-            if (remoteProfile == null) {
-                return;
-            }
+        return EventTask.withContinuation(continuation -> {
+            this.core.getGameProfileByName(name).whenComplete((remoteProfile, ex) -> {
+                if (ex == null && remoteProfile.isPresent()) {
+                    RemoteGameProfile.Property textureProperty = remoteProfile.get().getProperty("textures").orElse(null);
 
-            RemoteGameProfile.Property textureProperty = remoteProfile.getProperty("textures").orElse(null);
-            if (textureProperty == null) {
-                return;
-            }
+                    if (textureProperty != null) {
+                        GameProfile localProfile = event.getGameProfile();
+                        List<GameProfile.Property> newProperties = new ArrayList<GameProfile.Property>(localProfile.getProperties());
+                        newProperties.removeIf(p -> p.getName().equals("textures"));
+                        newProperties.add(new GameProfile.Property(
+                            "textures",
+                            textureProperty.value,
+                            textureProperty.signature
+                        ));
 
-            GameProfile localProfile = event.getGameProfile();
-            List<GameProfile.Property> newProperties = new ArrayList<GameProfile.Property>(localProfile.getProperties());
-            newProperties.removeIf(p -> p.getName().equals("textures"));
-            newProperties.add(new GameProfile.Property(
-                    "textures",
-                    textureProperty.value,
-                    textureProperty.signature
-            ));
-
-            event.setGameProfile(localProfile.withProperties(newProperties));
+                        event.setGameProfile(localProfile.withProperties(newProperties));
+                    }
+                }
+                continuation.resume();
+            });
         });
     }
 }

@@ -18,12 +18,22 @@ public class PaperListener implements Listener {
 
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onPlayerPreLogin(AsyncPlayerPreLoginEvent event) {
-        String name = event.getName();
-
-        RemoteGameProfile remoteProfile = core.getGameProfileByName(name).orElse(null);
-        if (remoteProfile == null) {
+        if (event.getLoginResult() != AsyncPlayerPreLoginEvent.Result.ALLOWED) {
             return;
         }
+
+        String name = event.getName();
+        RemoteGameProfile remoteProfile;
+
+        try {
+            remoteProfile = this.core.getGameProfileByName(name).get().orElse(null);
+            if (remoteProfile == null) {
+                return;
+            }
+        } catch (Exception e) {
+            return;
+        }
+
 
         RemoteGameProfile.Property textureProperty = remoteProfile.getProperty("textures").orElse(null);
         if (textureProperty == null) {

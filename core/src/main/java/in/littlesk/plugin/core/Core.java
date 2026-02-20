@@ -11,6 +11,7 @@ import com.squareup.moshi.Moshi;
 import com.squareup.moshi.JsonAdapter;
 
 import java.util.Optional;
+import java.util.concurrent.CompletableFuture;
 
 public class Core {
     private final OkHttpClient httpClient;
@@ -65,7 +66,7 @@ public class Core {
                 this.logger.error("Response body: " + response.body().string());
             }
         } catch (Exception e) {
-            this.logger.error("Exception while fetching UUID for name " + name + ".", e);
+            this.logger.error("Exception while fetching UUID for name " + name + ": " + e.getMessage(), e);
         }
         return Optional.empty();
     }
@@ -90,17 +91,19 @@ public class Core {
                 this.logger.error("Response body: " + response.body().string());
             }
         } catch (Exception e) {
-            this.logger.error("Exception while fetching profile for UUID " + uuid + ".", e);
+            this.logger.error("Exception while fetching profile for UUID " + uuid + ": " + e.getMessage(), e);
         }
         return Optional.empty();
     }
 
-    public Optional<RemoteGameProfile> getGameProfileByName(String name) {
-        UUIDResponse uuid = this.getUUIDByName(name).orElse(null);
-        if (uuid == null) {
-            return Optional.empty();
-        }
-        return this.getPlayerProfileByUUID(uuid.getUniqueId());
+    public CompletableFuture<Optional<RemoteGameProfile>> getGameProfileByName(String name) {
+        return CompletableFuture.supplyAsync(() -> {
+            UUIDResponse uuid = this.getUUIDByName(name).orElse(null);
+            if (uuid == null) {
+                return Optional.empty();
+            }
+            return this.getPlayerProfileByUUID(uuid.getUniqueId());
+        });
     }
 
     public void shutdown() {
