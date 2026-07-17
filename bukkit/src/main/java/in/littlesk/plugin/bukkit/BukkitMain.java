@@ -31,8 +31,6 @@ public final class BukkitMain extends JavaPlugin {
             return;
         }
 
-        Metrics metrics = new Metrics(this, 29005);
-
         if (checkIsPaper()) {
             this.core = new Core(this.logger, this.server.getName(), this.server.getVersion());
             pm.registerEvents(new PaperListener(this.core), this);
@@ -40,7 +38,10 @@ public final class BukkitMain extends JavaPlugin {
             this.logger.error(Messages.INCOMPATIBLE_SERVER_MESSAGE_BUKKIT);
             this.logger.warning(Messages.INCOMPATIBLE_SERVER_STAY_TUNED_MESSAGE);
             this.getServer().shutdown();
+            return;
         }
+
+        Metrics metrics = new Metrics(this, 29005);
     }
 
     @Override

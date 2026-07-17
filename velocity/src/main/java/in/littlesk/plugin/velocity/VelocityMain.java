@@ -46,6 +46,7 @@ public class VelocityMain {
         if (!serverVer.startsWith("3.")) {
             this.logger.error(Messages.INCOMPATIBLE_SERVER_MESSAGE_VELOCITY);
             this.server.shutdown();
+            return;
         }
 
         Metrics metrics = this.metricsFactory.make(this, 29008);
