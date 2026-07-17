@@ -93,7 +93,7 @@
 ### Velocity 群组服
 
 1. 确保 Velocity 和 Paper 子服处于离线模式：
-    - Velocity 的 `velocity.toml` 中 `online_mode` 的值为 `false`。
+    - Velocity 的 `velocity.toml` 中 `online-mode` 的值为 `false`。
     - Paper 子服的 `server.properties` 和 `config/paper-global.yml` 中 `online-mode` 的值均为 `false`。
 2. 将插件 jar 放入 Velocity 的 `plugins/` 目录后重启 Velocity 即可。
     - 群组服模式下 Paper 子服无需安装本插件。
