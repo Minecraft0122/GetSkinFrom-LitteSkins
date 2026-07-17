@@ -43,7 +43,7 @@ public class VelocityMain {
 
         String serverImpl = this.server.getVersion().getName();
         String serverVer = this.server.getVersion().getVersion();
-        if (!serverVer.startsWith("3.")) {
+        if (!(serverVer.startsWith("3.") || serverVer.startsWith("4."))) {
             this.logger.error(Messages.INCOMPATIBLE_SERVER_MESSAGE_VELOCITY);
             this.server.shutdown();
             return;
