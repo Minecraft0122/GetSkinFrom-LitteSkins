@@ -10,20 +10,6 @@ import java.util.stream.Stream;
 public final class Messages {
     private Messages() { }
 
-    public static final List<String> MOTD = Collections.unmodifiableList(Arrays.<String>asList(
-            "------",
-            "Cautious: You are using GetSkinFrom-LitteSkins rather than Yggdrasil authentication.",
-            "请注意：你正在使用 GetSkinFrom-LitteSkins，而不是 Yggdrasil 外置登录。",
-            "LittleSkin strongly recommends using Yggdrasil authentication under all circumstances.",
-            "LittleSkin 在任何情况下都建议使用 Yggdrasil 外置登录。",
-            "Yggdrasil authentication comes with built-in player texture loading while providing a much more secure and smooth player authentication experience.",
-            "Yggdrasil 外置登录自带玩家皮肤加载功能，同时可提供与正版验证同样安全和流畅的玩家身份验证体验。",
-            "For more information about Yggdrasil authentication, please visit:",
-            "要了解关于 Yggdrasil 外置登录的更多信息，请访问：",
-            "https://manual.littlesk.in/yggdrasil",
-            "------"
-    ));
-
     public static final List<String> ONLINE_MODE_MESSAGE = Collections.unmodifiableList(Arrays.<String>asList(
             "Server is running in online mode. GetSkinFrom-LitteSkins will not take any effect on online mode.",
             "服务器当前处于在线模式，GetSkinFrom-LitteSkins 不会生效。"

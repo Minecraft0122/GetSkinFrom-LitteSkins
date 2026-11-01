@@ -17,7 +17,7 @@ import org.slf4j.Logger;
 @Plugin(
         id = "getskinfrom-littleskins",
         name = "GetSkinFrom-LitteSkins",
-        version = "1.2.0"
+        version = "1.2.1"
 )
 public class VelocityMain {
 
@@ -35,8 +35,6 @@ public class VelocityMain {
 
     @Subscribe
     public void onProxyInitialization(ProxyInitializeEvent event) {
-        this.logger.warning(Messages.MOTD);
-
         if (this.server.getConfiguration().isOnlineMode()) {
             this.logger.warning(Messages.ONLINE_MODE_MESSAGE);
             return;
@@ -57,6 +55,7 @@ public class VelocityMain {
                 server.getCommandManager().metaBuilder("littleskin").build(),
                 new VelocityLittleSkinCommand(this.core)
         );
+        this.logger.info("GetSkinFrom-LitteSkins enabled.");
     }
 
     @Subscribe

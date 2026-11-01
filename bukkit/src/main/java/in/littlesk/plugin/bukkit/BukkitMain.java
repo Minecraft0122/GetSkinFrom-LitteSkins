@@ -21,8 +21,6 @@ public final class BukkitMain extends JavaPlugin {
         this.server = this.getServer();
         this.logger = new JulLogger(this.getLogger());
 
-        this.logger.warning(Messages.MOTD);
-
         PluginManager pm = this.getServer().getPluginManager();
 
         if (Bukkit.getOnlineMode()) {
@@ -45,6 +43,7 @@ public final class BukkitMain extends JavaPlugin {
         }
 
         Metrics metrics = new Metrics(this, 29005);
+        this.logger.info("GetSkinFrom-LitteSkins enabled.");
     }
 
     @Override
