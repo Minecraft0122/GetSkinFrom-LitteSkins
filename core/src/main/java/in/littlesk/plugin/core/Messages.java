@@ -58,6 +58,6 @@ public final class Messages {
     public static final List<String> INCOMPATIBLE_SERVER_STAY_TUNED_MESSAGE = Collections.unmodifiableList(Arrays.<String>asList(
             "Support for more servers platforms may be added in the future. Stay tuned!",
             "我们未来可能会添加对更多服务端的支持，敬请期待！",
-            "https://github.com/LittleSkinChina/LittleSkinPlugin"
+            "https://github.com/Minecraft0122/GetSkinFrom-LitteSkins"
     ));
 }

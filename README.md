@@ -4,8 +4,8 @@
 
 # GetSkinFrom-LitteSkins
 
-[![Downloads](https://img.shields.io/github/downloads/LittleSkinChina/LittleSkinPlugin/total)](https://github.com/LittleSkinChina/LittleSkinPlugin/releases)
-![GitHub License](https://img.shields.io/github/license/LittleSkinChina/LittleSkinPlugin)
+[![Downloads](https://img.shields.io/github/downloads/Minecraft0122/GetSkinFrom-LitteSkins/total)](https://github.com/Minecraft0122/GetSkinFrom-LitteSkins/releases)
+![GitHub License](https://img.shields.io/github/license/Minecraft0122/GetSkinFrom-LitteSkins)
 [![Sponsor](https://img.shields.io/badge/sponsor-30363D?logo=GitHub-Sponsors)](https://afdian.com/a/tnqzh123)
 
 </div>
@@ -74,7 +74,7 @@
 
 ## 获取插件
 
-你可以在 [Releases](https://github.com/LittleSkinChina/LittleSkinPlugin/releases) 页面或 [红石中继站](https://www.mczwlt.net/resource/gwj6dfgr) 下载到最新版本的插件。
+你可以在 [Releases](https://github.com/Minecraft0122/GetSkinFrom-LitteSkins/releases) 页面或 [红石中继站](https://www.mczwlt.net/resource/gwj6dfgr) 下载到最新版本的插件。
 
 **本插件不区分 Paper 版或 Velocity 版**，单一插件 jar 即同时支持 Paper 和 Velocity。
 

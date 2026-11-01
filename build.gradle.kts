@@ -4,7 +4,7 @@ plugins {
 
 allprojects {
     group = "in.littlesk.plugin"
-    version = System.getenv("LSP_VERSION") ?: "1.0.0-SNAPSHOT"
+    version = System.getenv("LSP_VERSION") ?: "1.2.0"
     extra.set("pluginId", "getskinfrom-littleskins")
     description = "Plugin for loading player textures from LittleSkins."
 

@@ -17,7 +17,7 @@ import org.slf4j.Logger;
 @Plugin(
         id = "getskinfrom-littleskins",
         name = "GetSkinFrom-LitteSkins",
-        version = "1.0.0"
+        version = "1.2.0"
 )
 public class VelocityMain {
 
