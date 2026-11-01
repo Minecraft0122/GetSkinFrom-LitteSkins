@@ -34,6 +34,9 @@ public final class BukkitMain extends JavaPlugin {
         if (checkIsPaper()) {
             this.core = new Core(this.logger, this.server.getName(), this.server.getVersion());
             pm.registerEvents(new PaperListener(this.core), this);
+            if (this.getCommand("littleskin") != null) {
+                this.getCommand("littleskin").setExecutor(new LittleSkinCommand(this, this.core));
+            }
         } else {
             this.logger.error(Messages.INCOMPATIBLE_SERVER_MESSAGE_BUKKIT);
             this.logger.warning(Messages.INCOMPATIBLE_SERVER_STAY_TUNED_MESSAGE);

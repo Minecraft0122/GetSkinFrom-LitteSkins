@@ -2,7 +2,7 @@
 
 <img src="https://raw.githubusercontent.com/LittleSkinChina/logos/refs/heads/master/generated/LittleSkin_square.png" width="64" />
 
-# LittleSkinPlugin
+# GetSkinFrom-LitteSkins
 
 [![Downloads](https://img.shields.io/github/downloads/LittleSkinChina/LittleSkinPlugin/total)](https://github.com/LittleSkinChina/LittleSkinPlugin/releases)
 ![GitHub License](https://img.shields.io/github/license/LittleSkinChina/LittleSkinPlugin)
@@ -82,13 +82,15 @@
 
 本插件不需要配置，也没有任何配置文件。
 
-插件安装完成后，玩家使用 LittleSkin 的 Yggdrasil 外置登录加入服务器即可加载皮肤和披风，无需执行任何指令。
+插件安装完成后，玩家使用 LittleSkin 的 Yggdrasil 外置登录加入服务器即可加载皮肤和披风。`/littleskin update` 可在游戏内更新为 LittleSkin 皮肤。
 
 ### 单一 Paper 服务端
 
 1. 确保服务端处于离线模式：
     - `server.properties` 中 `online-mode` 的值为 `false`。
 2. 将插件 jar 放入 Paper 的 `plugins/` 目录后重启 Paper 即可。
+
+SkinsRestorer 是运行此插件的必需依赖。登录时会先尝试从 LittleSkin 获取皮肤；LittleSkin 没有返回可用皮肤时，保留 SkinsRestorer 的皮肤处理结果。执行 `/skin update` 时由 SkinsRestorer 覆盖当前皮肤；执行 `/littleskin update` 时会先从 LittleSkin 获取，再通过 SkinsRestorer API 应用。LittleSkin 查询或应用失败时会提示玩家并保留当前皮肤。
 
 ### Velocity 群组服
 

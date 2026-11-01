@@ -5,6 +5,11 @@ main: '${group}.bukkit.BukkitMain'
 load: STARTUP
 authors: ['LittleSkin']
 website: 'https://littleskin'
+depend: [ SkinsRestorer ]
 softdepend: [ ProtocolLib ]
 api-version: 1.13
 folia-supported: true
+commands:
+  littleskin:
+    description: Update your skin from LittleSkin
+    usage: /littleskin update

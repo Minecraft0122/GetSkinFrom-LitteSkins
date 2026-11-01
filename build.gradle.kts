@@ -5,8 +5,8 @@ plugins {
 allprojects {
     group = "in.littlesk.plugin"
     version = System.getenv("LSP_VERSION") ?: "1.0.0-SNAPSHOT"
-    extra.set("pluginId", "littleskinplugin")
-    description = "Plugin for loading player textures from LittleSkin."
+    extra.set("pluginId", "getskinfrom-littleskins")
+    description = "Plugin for loading player textures from LittleSkins."
 
     repositories {
         mavenCentral()

@@ -7,6 +7,10 @@
     "LittleSkin"
   ],
   "url": "https://littleskin.cn",
-  "dependencies": [],
+  "dependencies": [
+    {
+      "id": "skinsrestorer"
+    }
+  ],
   "main": "${group}.velocity.VelocityMain"
 }

@@ -24,6 +24,11 @@ public class PaperListener implements Listener {
             return;
         }
 
+        PlayerProfile localProfile = event.getPlayerProfile();
+        if (localProfile.getProperties().stream().anyMatch(property -> property.getName().equals("textures"))) {
+            return;
+        }
+
         String name = event.getName();
         RemoteGameProfile remoteProfile;
 
@@ -42,7 +47,6 @@ public class PaperListener implements Listener {
             return;
         }
 
-        PlayerProfile localProfile = event.getPlayerProfile();
         localProfile.setProperty(new ProfileProperty(
                 "textures",
                 textureProperty.value,

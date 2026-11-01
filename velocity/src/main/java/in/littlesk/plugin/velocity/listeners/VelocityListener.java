@@ -32,7 +32,7 @@ public class VelocityListener {
                     if (textureProperty != null) {
                         GameProfile localProfile = event.getGameProfile();
                         List<GameProfile.Property> newProperties = new ArrayList<GameProfile.Property>(localProfile.getProperties());
-                        newProperties.removeIf(p -> p.getName().equals("textures"));
+                        newProperties.removeIf(property -> property.getName().equals("textures"));
                         newProperties.add(new GameProfile.Property(
                             "textures",
                             textureProperty.value,

@@ -34,7 +34,7 @@ public class Core {
                     okhttp3.Request modifiedRequest = originalRequest.newBuilder()
                             .header("Accept", "application/json")
                             .header("User-Agent", String.join(" ",
-                                    "LittleSkinPlugin/" + this.pluginVer,
+                                    "GetSkinFrom-LitteSkins/" + this.pluginVer,
                                     this.serverImpl + '/' + this.serverVer,
                                     "Java/" + this.runtimeVer
                                 )).build();
@@ -58,7 +58,11 @@ public class Core {
                 .build();
 
         try (Response response = this.httpClient.newCall(request).execute()) {
-            if (response.isSuccessful() && response.code() != 204) {
+            if (response.code() == 204) {
+                return Optional.empty();
+            }
+
+            if (response.isSuccessful()) {
                 UUIDResponse uuid = this.uuidResponseJsonAdapter.fromJson(response.body().source());
                 return Optional.ofNullable(uuid);
             } else {
@@ -83,6 +87,10 @@ public class Core {
                 .build();
 
         try (Response response = this.httpClient.newCall(request).execute()) {
+            if (response.code() == 204) {
+                return Optional.empty();
+            }
+
             if (response.isSuccessful()) {
                 RemoteGameProfile profile = this.gameProfileJsonAdapter.fromJson(response.body().source());
                 return Optional.ofNullable(profile);

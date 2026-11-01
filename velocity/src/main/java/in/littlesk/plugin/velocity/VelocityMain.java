@@ -10,12 +10,13 @@ import in.littlesk.plugin.core.Core;
 import in.littlesk.plugin.core.logger.Slf4jLogger;
 import in.littlesk.plugin.core.Messages;
 import in.littlesk.plugin.velocity.listeners.VelocityListener;
+import in.littlesk.plugin.velocity.commands.VelocityLittleSkinCommand;
 import org.bstats.velocity.Metrics;
 import org.slf4j.Logger;
 
 @Plugin(
-        id = "littleskinplugin",
-        name = "LittleSkinPlugin",
+        id = "getskinfrom-littleskins",
+        name = "GetSkinFrom-LitteSkins",
         version = "1.0.0"
 )
 public class VelocityMain {
@@ -52,6 +53,10 @@ public class VelocityMain {
         Metrics metrics = this.metricsFactory.make(this, 29008);
         this.core = new Core(this.logger, serverImpl, serverVer);
         server.getEventManager().register(this, new VelocityListener(this.core));
+        server.getCommandManager().register(
+                server.getCommandManager().metaBuilder("littleskin").build(),
+                new VelocityLittleSkinCommand(this.core)
+        );
     }
 
     @Subscribe
